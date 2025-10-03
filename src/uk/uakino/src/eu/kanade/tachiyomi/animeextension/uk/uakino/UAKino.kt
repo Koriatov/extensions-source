@@ -28,11 +28,11 @@ class UAKino : ParsedAnimeHttpSource() {
     private val animeSelector = "div.movie-item"
     private val nextPageSelector = "a:contains(Далі)"
 
-    override val baseUrl = "https://uakino.club"
+    override val baseUrl = "https://uakino.best"
     private val animeUrl = "/animeukr"
     private val popularUrl = "/f/c.year=1921,2024/sort=rating;desc"
 
-    private val episodesAPI = "https://uakino.club/engine/ajax/playlists.php?news_id=%s&xfield=playlist" // %s - ID title
+    private val episodesAPI = "https://uakino.best/engine/ajax/playlists.php?news_id=%s&xfield=playlist" // %s - ID title
 
     // =========================== Anime Details ============================
 
@@ -43,7 +43,7 @@ class UAKino : ParsedAnimeHttpSource() {
 
         // Poster can be /upload... or https://...
         val posterUrl = document.select("a[data-fancybox=gallery]").attr("href")
-        if (posterUrl.contains("https://uakino.club")) {
+        if (posterUrl.contains("https://uakino.best")) {
             anime.thumbnail_url = posterUrl
         } else {
             anime.thumbnail_url = baseUrl + posterUrl
